@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Tadbir Yaratish – Evently</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Evently</h1>
+    <nav>
+      <a href="index.html">Bosh sahifa</a>
+      <a href="create-event.html">Tadbir yaratish</a>
+      <a href="services.html">Xizmatlar</a>
+      <a href="dashboard.html">Profil</a>
+    </nav>
+  </header>
+
+  <main class="form-page">
+    <h2 class="page-title">Tadbirni yaratish</h2>
+    <form id="eventForm" class="event-form">
+      
+      <label for="name">📝 Tadbir nomi:</label>
+      <input type="text" id="name" name="name" required placeholder="Masalan: Sherzod va Zilolaning To‘yi">
+
+      <label for="date">📅 Sana:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">⏰ Vaqti:</label>
+      <input type="time" id="time" name="time" required>
+
+      <label for="location">📍 Joylashuv:</label>
+      <input type="text" id="location" name="location" required placeholder="Masalan: Samarqand, Registon maydoni">
+
+      <label for="category">📂 Tadbir toifasi:</label>
+      <select id="category" name="category" required>
+        <option value="">Toifani tanlang</option>
+        <option value="to‘y">To‘y</option>
+        <option value="tug‘ilgan kun">Tug‘ilgan kun</option>
+        <option value="seminar">Seminar</option>
+        <option value="konferensiya">Konferensiya</option>
+        <option value="boshqa">Boshqa</option>
+      </select>
+
+      <button type="submit">✅ Tadbirni yaratish</button>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('eventForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const date = form.date.value;
+      const time = form.time.value;
+      const location = form.location.value.trim();
+      const category = form.category.value;
+
+      if (!name || !date || !time || !location || !category) {
+        alert("Iltimos, barcha maydonlarni to‘ldiring.");
+        return;
+      }
+
+      alert("Tadbir muvaffaqiyatli yaratildi! 🎉");
+      // Bu yerga backendga yuborish yoki localStorage qo‘shish mumkin
+    });
+  </script>
+</body>
+</html>

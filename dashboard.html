@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard – Evently</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Evently</h1>
+    <nav>
+      <a href="index.html">Bosh sahifa</a>
+      <a href="create-event.html">Tadbir yaratish</a>
+      <a href="services.html">Xizmatlar</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <h2 class="page-title">📊 Mening Tadbirlarim</h2>
+    <div id="eventContainer" class="event-list">
+      <!-- Tadbirlar shu yerda chiqadi -->
+    </div>
+  </main>
+
+  <script>
+    const container = document.getElementById('eventContainer');
+
+    // localStorage dan event'ni olib chiqamiz
+    const eventData = JSON.parse(localStorage.getItem("myEvent"));
+
+    if (eventData) {
+      const card = document.createElement('div');
+      card.className = 'event-card';
+
+      card.innerHTML = `
+        <h3>${eventData.name}</h3>
+        <p><strong>Sana:</strong> ${eventData.date}</p>
+        <p><strong>Joylashuv:</strong> ${eventData.location}</p>
+        <p><strong>Kategoriya:</strong> ${eventData.category}</p>
+        <button onclick="editEvent()">✏️ Tahrirlash</button>
+      `;
+
+      container.appendChild(card);
+    } else {
+      container.innerHTML = `<p>🛈 Siz hali tadbir yaratmagansiz.</p>`;
+    }
+
+    function editEvent() {
+      window.location.href = "create-event.html";
+    }
+  </script>
+</body>
+</html>

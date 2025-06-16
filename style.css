@@ -1,0 +1,299 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f3f3f3;
+}
+/* 1. Butun sahifaga orqa fon rasmi */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: url('../images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* 2. Menyu paneli fon rasmi bilan */
+.main-header {
+  position: relative;
+  background: url('../images/menu-bg.jpg') no-repeat center;
+  background-size: cover;
+  padding: 20px;
+  text-align: center;
+  z-index: 1;
+}
+
+.main-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* qora shaffof fon */
+  z-index: -1;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.main-header nav a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* xizmat sahifasi layout */
+.services-page {
+  padding: 40px;
+  text-align: center;
+}
+
+/* kartalar grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* qolgan kartalar styling avvalgidek (card-bg, card-overlay va h.k.) */
+
+.main-header {
+  background-color: #000000;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.main-header nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.services-page {
+  padding: 40px;
+  text-align: center;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card-bg {
+  position: relative;
+  display: block;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.card-bg:hover {
+  transform: scale(1.03);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card-overlay h4 {
+  margin: 0 0 5px;
+  font-size: 1.2em;
+}
+
+.card-overlay p {
+  margin: 0 0 10px;
+  font-size: 0.9em;
+}
+
+.card-overlay .btn {
+  align-self: flex-start;
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2em;
+  margin: 30px 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 0 40px 60px;
+}
+
+.service-card {
+  position: relative;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.03);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-overlay h3 {
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.card-overlay button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #ffffffcc;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.card-overlay button:hover {
+  background: #ffffff;
+}
+
+/* create_event.html */
+
+.form-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.event-form label {
+  font-weight: bold;
+}
+
+.event-form input,
+.event-form select {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.event-form button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1em;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.event-form button:hover {
+  background-color: #45a049;
+}
+
+/* Guest-list */
+
+.guest-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.guest-form input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.guest-form button {
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.guest-list {
+  list-style: none;
+  padding: 0;
+}
+
+.guest-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #075830;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+/* Dashbard style */
+
+.event-list {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.event-card {
+  background: #ffffffcc;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.event-card h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+.event-card button {
+  padding: 8px 15px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

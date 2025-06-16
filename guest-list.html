@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Mehmonlar Ro‘yxati – Evently</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Evently</h1>
+    <nav>
+      <a href="index.html">Bosh sahifa</a>
+      <a href="create-event.html">Tadbir yaratish</a>
+      <a href="services.html">Xizmatlar</a>
+      <a href="dashboard.html">Profil</a>
+    </nav>
+  </header>
+
+  <main class="guest-page">
+    <h2 class="page-title">📩 Mehmonlar ro‘yxatini tuzing</h2>
+
+    <form id="guestForm" class="guest-form">
+      <input type="email" id="guestEmail" required placeholder="Email kiriting...">
+      <button type="submit">➕ Qo‘shish</button>
+    </form>
+
+    <ul id="guestList" class="guest-list">
+      <!-- Mehmonlar shu yerda chiqadi -->
+    </ul>
+  </main>
+
+  <script>
+    const form = document.getElementById('guestForm');
+    const input = document.getElementById('guestEmail');
+    const list = document.getElementById('guestList');
+
+    let guests = [];
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = input.value.trim();
+
+      if (!email) return;
+
+      const guest = {
+        email: email,
+        rsvp: '❓ Noma’lum'
+      };
+
+      guests.push(guest);
+      input.value = "";
+      renderList();
+    });
+
+    function renderList() {
+      list.innerHTML = "";
+      guests.forEach((guest, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${guest.email}</span>
+          <select onchange="updateRSVP(${index}, this.value)">
+            <option value="❓ Noma’lum" ${guest.rsvp === '❓ Noma’lum' ? 'selected' : ''}>❓ Noma’lum</option>
+            <option value="✅ Keladi" ${guest.rsvp === '✅ Keladi' ? 'selected' : ''}>✅ Keladi</option>
+            <option value="❌ Kelmaydi" ${guest.rsvp === '❌ Kelmaydi' ? 'selected' : ''}>❌ Kelmaydi</option>
+          </select>
+        `;
+        list.appendChild(li);
+      });
+    }
+
+    window.updateRSVP = function(index, status) {
+      guests[index].rsvp = status;
+      renderList();
+    };
+  </script>
+</body>
+</html>
